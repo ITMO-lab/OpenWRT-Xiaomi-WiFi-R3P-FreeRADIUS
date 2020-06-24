@@ -238,6 +238,12 @@
 
 ![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/1_1.png)
 
+Далее устанавливаем web gui, чтобы можно было продолжить работу в нём.
+
+`opkg update` 
+
+`opkg install luci`
+
 ## 4.2  Восстановление роутера из состояния кирпича
 
 123
