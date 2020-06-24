@@ -22,7 +22,7 @@
 
 [**1 Краткий обзор основных характеристик роутера**](#1-краткий-обзор-основных-характеристик-роутера)
 
-[**2 Стоковая прошивка**](#2-стоковая-прошивка)
+[**2 Первая настройка роутера**](#2-первая-настройка-роутера)
 
 
 
@@ -45,7 +45,7 @@
 | Оперативная память                        | 512MB DDR3-1200                          |
 | Процессор Wi-Fi                           | MediaTek MT7615E                         |
 
-# 2 Стоковая прошивка
+# 2 Первая настройка роутера
 
 Если вы включаете роутер впервые, тогда он раздаст открытый WiFi с названием  Xiaomi_XXXX_XXXX
 
@@ -53,7 +53,7 @@
 
 Автоматически откроется страница http://192.168.31.1/cgi-bin/luci/web/init/hello
 
-![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/1.png)
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/2/1.png)
 
 Гугл переводчик переводит это как:
 [текст] Пожалуйста, прочтите «Пользовательское лицензионное соглашение» и выберите, соглашаться ли 
@@ -63,29 +63,29 @@
 
 Нажимаем большую синюю кнопку и попадаем в меню первой настройки роутера
 
-![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/2.png)
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/2/2.png)
 
 Или же, если в роутер не воткнут кабель с интернетом (перекинул на ноут, чтобы переводить китайский)
 
-![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/3.png)
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/2/3.png)
 
 Выбираем верхний режим работы и попадаем в меню выше
 
 Логично, что тут выбирается имя сети WiFi (SSID) и её пароль, тут я галочку не снял (отвечает за какие-то настройки firewall. нам всё равно прошивку стирать, так что не важно) и нажал большую синюю кнопку.
 
-![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4.png)
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/2/4.png)
 
 Тут выбирается пароль к админке этой прошивке. Если нажмёте галочку, тогда будет выбран тот же пароль, что и для WiFi. В чём разница между "Семья", "Компания" и "Подгоняет" я не понял, ну и не важно, пусть будет по умолчанию ("Семья"), нам ещё не долго пользоваться этой прошивкой. Снова нажимаем большую синюю кнопку. 
 
-![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5.png)
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/2/5.png)
 
 Ждём загрузки роутера. На нём оранжевая лампочка сменится синей, когда всё завершится. Кстати, роутер ещё умеет мигать красным, если вы попытаетесь прошить его через USB такой прошивкой, которую он принципиально не может скушать.
 
-![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/6.png)
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/2/6.png)
 
 Думаю, тут очевидно, куда нажимать. Только не забудьте подключиться к новой Wi-Fi сети )
 
-![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/7.png)
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/2/7.png)
 
-Попадаем в такое меню. Здесь вводим пароль от роутера и нажимаем стрелочку. При первом входе роутер предложит провести некоторые настройки. Там есть синяя кнопка.     НЕ     НАЖИМАЙТЕ     НА     НЕЁ     . Вместо этого нажмите на подчёркнутый текст под кнопкой. Это пропустит гайд по этой прошивке.
+Попадаем в такое меню. Здесь вводим пароль от роутера и нажимаем стрелочку. При первом входе роутер предложит провести некоторые настройки. Там есть синяя кнопка.     НЕ     НАЖИМАЙТЕ     НА     НЕЁ     . Вместо этого нажмите на подчёркнутый текст под кнопкой. Это пропустит гайд по этой прошивке. Прокликайте по свободным местам, чтобы пройти навязанное введение в интерфейс прошивки. Всё, с этого момента можно приступать к настройке роутера для установки кастомных прошивок.
 
