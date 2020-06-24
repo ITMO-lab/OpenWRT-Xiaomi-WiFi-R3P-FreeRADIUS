@@ -268,9 +268,79 @@
 
 Но зачем нам все эти сложности, ведь нам нужен только доступ к UART разъёму?
 
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/photos/20200624_212857.jpg)
 
+Просто отключаем роутер от питания, аккуратно ножом поддеваем правую пластиковую стенку,
 
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/photos/20200624_212925.jpg)
 
+Теперь у нас есть доступ к разъёму. Можно даже к нему подпаять провода, нам нужны RX, TX и GND. Питание на 3.3 v не трогаем.
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/photos/20200624_213916.jpg)
+
+Но я не хочу паять плату, поэтому просто подсоединю кабель к роутеру и к UART-Serial конвертору, но вам рекомендую припаять.
+
+Напряжение TX и RX должно быть **3.3 вольта (ЭТО ВАЖНО!)**
+
+Вам потребуется терминал для Serial порта. На linux это делается одной командой, но пользователи Windows могут скачать [putty](https://www.putty.org/) с официального сайта или же по ссылке на моём гите: [putty](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/firmware/programs/putty-0.73-ru-17.zip)
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/5.png)
+
+Запускаем приложение. Выбираем слева снизу "Serial", далее настраиваем всё, как на картинке. COM порт выбираем согласно вашему конвертору. 
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/6.png)
+
+Его можно найти в диспетчере устройств.
+
+Если у вас запускается приложение на windows, но при подключение оно просто выдаёт звук и ничего не делает (у меня такое случалось), тогда перейдите в директорию с распакованным putty.exe и выполните:
+
+`.\putty.exe  -serial COM4 -sercfg "115200,8,n,1,"` - только введите ваш COM порт вместо COM4.
+
+Откроется окно последовательного порта. После чего подаём питание на роутер и вылавливаем момент, когда появится меню "Please choose the operation"
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/7.png)
+
+Тут нажимаем 2 в окне с последовательным портом. Далее выполняем то, что систему запрашивает. IP адреса рекомендую не менять, а имя файла нужно ввести своё (далее будет обозначено) и НЕ нажимать ввод. Сначала нужно подключиться по ethernet кабелю к роутеру на поднять DHCP.
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/8.png)
+
+Для этого нужно открыть "Сетевые подключения", найти ваш проводной адаптер. Правая кнопка мыши, его свойства...
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/9.png)
+
+Там нужно выбрать пункт "IP версии 4...", его свойства, а далее выбрать "Использовать следующий IP-адрес" и настроить всё, как в образце. После чего покликать по кнопкам "ОК". Поздравляю, у вас DHCP и ваш новый адрес 192.168.1.3, а адрес роутера остался 192.168.1.1.
+
+Прошивка ядра осуществляется через TFTP. [Программа для поднятия TFTP сервера](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/firmware/programs/Tftpd64-4.00-setup.exe)
+
+Для начала нам нужен файл ядра [openwrt-ramips-mt7621-xiaomi_mir3p-initramfs-kernel.bin](https://downloads.openwrt.org/snapshots/targets/ramips/mt7621/openwrt-ramips-mt7621-xiaomi_mir3p-initramfs-kernel.bin)
+
+Сохраняем этот файл в удобное место, например, "C:\router". Для удобства я переименую файл "openwrt-ramips-mt7621-xiaomi_mir3p-initramfs-kernel.bin" в "linux.bin". Это то самое ядро, которое у нас просит сейчас роутер. 
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/10.png)
+
+Выключаем Wi-Fi и оставляем только одно подключение - по тому кабелю с DHCP. Настраиваем путь к нашей папке "C:\router", выбираем нужный "Server interface" - должен быть нашим IP в собственном DHCP. Программа TFTP сервера запущена автоматически.
+
+Переходим в окно последовательного порта и проверяем данные. Если адреса и имя верные, нажимаем Enter и начнётся процесс загрузки.
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/11.png)
+
+Если процесс загрузки идёт хорошо, вы увидите такую картину. Мне удалось прошить ядро без разбора корпуса и пайки.
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/12.png)
+
+Кстати, не забудьте выключить DHCP, для этого перейдите в уже знакомое меню "Сетевые подключения" и смените режим работы на "Получать IP-адрес автоматически".
+
+Вместе с этим ядром идёт несколько базовых пакетов, но это далеко не конечная прошивка. Далее требуется скачать файл с обновлением для этого ядра. Он настроит файловую систему. [openwrt-ramips-mt7621-xiaomi_mir3p-squashfs-sysupgrade.bin](https://downloads.openwrt.org/snapshots/targets/ramips/mt7621/openwrt-ramips-mt7621-xiaomi_mir3p-squashfs-sysupgrade.bin)
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/13.png)
+
+Проходим процесс авторизации без пароля (просто нажимаем "Войти") и быстро переходим в "System" -> "Backup / Flash Firmware" -> Выбираете файл (выбираем наш openwrt-ramips-mt7621-xiaomi_mir3p-squashfs-sysupgrade.bin) -> "Flash image..."
+
+Важно НЕ снимать галочку с "Keep settings". 
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/13.png)
+
+В этом меню нажимаем "Proceed" и процесс загрузки начнётся. Через минуту у вас будет вполне рабочая конфигурация роутера на OpenWRT с проблемным WiFi и протоколами безопасности. Далее требуется пропатчить сборку кастомной прошивкой в пункте 4.3.
 
 ## 4.3  Установка новой прошивки роутера
 
@@ -296,4 +366,4 @@
 
 После загрузки получаем предупреждение о версии: "xiaomi,mir3p" != "xiaomi,mir-3p". Фактически же это один и тот же роутер, так что нажимаем галочку на "Force upgrade" и нажимаем "Continue".
 
-Важно, чтобы сейчас у вас не отключили свет, ведь иначе вам потребуется сначала пройти пункт 4.2, а потом пройти 4.3 сначала. Процесс загрузки может занять продолжительное время. После завершения загрузки, вам будет доступен web gui, ssh и ещё много пакетов. Уже на этом этапе можно закончить, но зачем нам на таком крутом роутере какой-то там WPA2-PSK, если, помимо WPA3, мы  можем поднять настоящий шедевр безопасности - WPA2-Enterprise.
+Важно, чтобы сейчас у вас не отключили свет, ведь иначе вам потребуется сначала пройти пункт 4.2, а потом пройти 4.3 сначала. Процесс загрузки может занять продолжительное время. После завершения загрузки, вам будет доступен web gui, ssh и ещё много пакетов. Уже на этом этапе можно закончить, ведь WiFi работает, а протоколы безопасности установлены, но зачем нам на таком крутом роутере какой-то там WPA2-PSK, если, помимо WPA3, мы  можем поднять настоящий шедевр безопасности - WPA2-Enterprise.
