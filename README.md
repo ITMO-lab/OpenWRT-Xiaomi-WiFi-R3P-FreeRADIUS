@@ -30,7 +30,7 @@
 
 # 1 Краткий обзор основных характеристик роутера
 
-![img](https://lh3.googleusercontent.com/ftcuSMOe1HRznZ0s_-a-tj1SIW3KypCn3cC_w30NId36VyQWgNefHDiW4csMzjWN1kiuOHBgt6Q8CWt19jN6bpLMlJ1zJj51xNXtAr0R_8kcZEupFbgIF-WWwiinmnK8yvcd0P8n)
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/photos/20200624_162317.jpg)
 
 Характеристики роутера позволяют запускать на нём даже полноценные web сервисы:
 
