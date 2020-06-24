@@ -11,7 +11,7 @@
 [**4 Установка кастомной прошивки**](#4-установка-кастомной-прошивки)
 
 - [4.1 Переход от прошивки Xiaomi к базовой прошивке OpenWRT](#41--переход-от-прошивки-Xiaomi-к-базовой-прошивке-OpenWRT)
-- [4.2 Восстановление роутера из состояния кирпича](#42--восстановление-роутера-из-состояния-кирпича)
+- [4.2 Обновление ядра (или восстановление роутера из состояния кирпича)](#42--обновление-ядра -(или-восстановление-роутера-из-состояния-кирпича))
 - [4.3 Установка новой прошивки роутера](#43--установка-новой-прошивки-роутера)
 
 
@@ -244,11 +244,34 @@
 
 `opkg install luci`
 
-## 4.2  Восстановление роутера из состояния кирпича
+Следующий пункт является обязательным
+
+## 4.2  Обновление ядра (или восстановление роутера из состояния кирпича)
 
 123
 
 ## 4.3  Установка новой прошивки роутера
 
-123
+Данная прошивка взята с комментария на 4pda: https://4pda.ru/forum/index.php?showtopic=810698&st=5440#entry92890464
 
+В ней настроено и сконфигурировано всё для функционирования драйверов для wifi, а также расширенных протоколов безопасности.
+
+Ссылка на клон на гите: [OpenWRT-19.07.1-MiR3P-sysupgrade.bin](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/firmware/OpenWRT-19.07.1-MiR3P-sysupgrade/OpenWRT-19.07.1-MiR3P-sysupgrade.bin)
+
+Скачиваем и обновляемся. Для этого входим в роутер 192.168.1.1 и логинимся (по умолчанию пароль пустой)
+
+Переходим "System" -> "Backup / Flash Firmware"
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/2.png)
+
+После этого нажимаем "Flash image..."
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/3.png)
+
+Далее нажимаем "Browse...", выбираем файл "OpenWRT-19.07.1-MiR3P-sysupgrade.bin" и нажимаем Upload.
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/4.png)
+
+После загрузки получаем предупреждение о версии: "xiaomi,mir3p" != "xiaomi,mir-3p". Фактически же это один и тот же роутер, так что нажимаем галочку на "Force upgrade" и нажимаем "Continue".
+
+Важно, чтобы сейчас у вас не отключили свет, ведь иначе вам потребуется сначала пройти пункт 4.2, а потом пройти 4.3 сначала. Процесс загрузки может занять продолжительное время. После завершения загрузки, вам будет доступен web gui, ssh и ещё много пакетов. Уже на этом этапе можно закончить, но зачем нам на таком крутом роутере какой-то там WPA2-PSK, если, помимо WPA3, мы  можем поднять настоящий шедевр безопасности - WPA2-Enterprise.
