@@ -336,7 +336,7 @@
 
 Проходим процесс авторизации без пароля (просто нажимаем "Войти") и быстро переходим в "System" -> "Backup / Flash Firmware" -> Выбираете файл (выбираем наш openwrt-ramips-mt7621-xiaomi_mir3p-squashfs-sysupgrade.bin) -> "Flash image...", **не снимая галочку с "Keep settings", это важно**.
 
-![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/13.png)
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/14.png)
 
 В этом меню нажимаем "Proceed" и процесс загрузки начнётся. Через минуту у вас будет вполне рабочая конфигурация роутера на OpenWRT с проблемным WiFi и протоколами безопасности. Далее требуется пропатчить сборку кастомной прошивкой в пункте 4.3.
 
