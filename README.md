@@ -180,9 +180,51 @@
 
 Вытаскиваем флешку из роутера, она нам понадобится. 
 
+Для тех, кто начал читать с этого момента - она должна быть формата **FAT32 (ЭТО ВАЖНО!)**
+
 Скачиваем с офф сайта прошивку OpenWRT: [openwrt-ramips-mt7621-xiaomi_mir3p-squashfs-factory.bin](https://downloads.openwrt.org/snapshots/targets/ramips/mt7621/openwrt-ramips-mt7621-xiaomi_mir3p-squashfs-factory.bin)
 
 Но лучше с моего клона на гите, ведь сайт могут и закрыть или версию обновить: [openwrt-ramips-mt7621-xiaomi_mir3p-squashfs-factory.bin](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/firmware/openwrt-ramips-mt7621/openwrt-ramips-mt7621-xiaomi_mir3p-squashfs-factory.bin)
+
+Далее копируем файл в корень нашей флешки так, чтобы на флешке остался только он. Xiaomi там создаст кучу файлов, просто удалите их и скопируйте файл.
+
+Вставляем флешку в роутер. И в консоли `ssh root@192.168.31.1` пишем (команды лучше вводить по очереди, чтобы не было проблем -ash):
+
+`cd /extdisks/sd*` - может отличаться, если вы вытащите и вставите флешку, но cd* должно перейти в любую версию.
+
+`mv openwrt-ramips-mt7621-xiaomi_mir3p-squashfs-factory.bin factory.bin` - сокращаем имя файла прошивки.
+
+`nvram set flag_try_sys1_failed=1 `
+
+`nvram set flag_try_sys2_failed=0`
+
+`nvram set flag_boot_success=0`
+
+`nvram commit`
+
+`dd if=factory.bin bs=1M count=4 | mtd write - kernel1`
+
+`mtd erase rootfs0`
+
+`mtd erase rootfs1`
+
+`mtd erase overlay`
+
+`dd if=factory.bin bs=1M skip=4 | mtd write - rootfs0`
+
+`reboot`
+
+После этих команд адрес роутера должен измениться с 192.168.31.1 на 192.168.1.1 и команда ssh будет выглядеть `ssh root@192.168.1.1`
+
+Что интересно, установить пароль можно в web gui, если открыть этот адрес в браузере.
+
+
+
+
+
+
+
+
 
 
 
