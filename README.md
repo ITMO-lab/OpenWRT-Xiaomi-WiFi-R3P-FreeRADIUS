@@ -91,3 +91,6 @@
 
 *Часть инструкций в этой главе была взята с открытого источника:* https://openwrt.org/toh/xiaomi/xiaomi_r3p_pro 
 
+Во-первых, загрузите Xiaomi «прошивку разработчика» с http://cdn.cnbj1.fds.api.mi-img.com/xiaoqiang/rom/r3p/miwifi_r3p_firmware_daddf_2.13.65.bin
+
+Или воспользуйтесь его копией на github [miwifi_r3p_firmware_daddf_2.13.65.bin](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/src/firmware/xiaomi-developer/miwifi_r3p_firmware_daddf_2.13.65.bin), ведь его могут убрать из открытых источников.
