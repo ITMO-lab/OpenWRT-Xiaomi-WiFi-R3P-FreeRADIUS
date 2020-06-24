@@ -60,3 +60,19 @@
 [галочка] Присоединяйтесь к «Программе улучшения взаимодействия с пользователем»
 
 *Лично я галочку снял*
+
+Нажимаем большую синюю кнопку и попадаем в меню первой настройки роутера
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/2.png)
+
+Или же, если в роутер не воткнут кабель с интернетом (перекинул на ноут, чтобы переводить китайский)
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/3.png)
+
+Выбираем верхний режим работы и попадаем в меню выше
+
+Логично, что тут выбирается имя сети WiFi (SSID) и её пароль, тут я галочку не снял (отвечает за какие-то настройки firewall. нам всё равно прошивку стирать, так что не важно) и нажал большую синюю кнопку.
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4.png)
+
+В чём разница между "Семья", "Компания" и "Подгоняет" я не понял, ну и не важно, пусть будет по умолчанию, нам ещё не долго пользоваться этой прошивкой.
