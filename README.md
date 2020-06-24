@@ -75,4 +75,12 @@
 
 ![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4.png)
 
-В чём разница между "Семья", "Компания" и "Подгоняет" я не понял, ну и не важно, пусть будет по умолчанию, нам ещё не долго пользоваться этой прошивкой.
+Тут выбирается пароль к админке этой прошивке. Если нажмёте галочку, тогда будет выбран тот же пароль, что и для WiFi. В чём разница между "Семья", "Компания" и "Подгоняет" я не понял, ну и не важно, пусть будет по умолчанию ("Семья"), нам ещё не долго пользоваться этой прошивкой. Снова нажимаем большую синюю кнопку. 
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5.png)
+
+Ждём загрузки роутера. На нём оранжевая лампочка сменится синей, когда всё завершится. Кстати, роутер ещё умеет мигать красным, если вы попытаетесь прошить его через USB такой прошивкой, которую он принципиально не может скушать.
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/6.png)
+
+Думаю, тут очевидно, куда нажимать. Только не забудьте подключиться к новой Wi-Fi сети )
