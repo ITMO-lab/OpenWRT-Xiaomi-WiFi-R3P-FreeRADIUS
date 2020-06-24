@@ -124,13 +124,13 @@
 
 Если вы впервые устанавливаете прошивку разработчика на роутер, тогда вам будет показано это окно. Если же этого окна нет, и вместо него идёт сразу окно с входом в админку, тогда ничего страшного, просто идём дальше по инструкции. Для настройки роутера вам потребуется специальное приложение. Установите приложение Android "Mi Wi-Fi" из https://play.google.com/store/apps/details?id=com.xiaomi.router на свой телефон / планшет (есть также приложение для iOS). 
 
-![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/3/6.png)
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/3/6_2.png)
 
 Откройте приложение «Mi Wi-Fi», затем войдите в свою учетную запись Xiaomi (Если у вас её нет, то сначала создайте на сайте https://www.mi.com/). 
 
 Маршрутизатор будет обнаружен и добавлен в вашу учетную запись (при условии, что вы подключены к WiFi роутера в режиме 2.4G, а порт WAN маршрутизатора подключен к Интернету). Нажимаем "Настроить роутер", в следующем меню выбираем пароль и настройка завершена. 
 
-![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/3/7.png)
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/3/7_2.png)
 
 На этом этапе лично у меня всегда зависает приложение, хотя я подключился к нужному WiFi, но да не важно, закрываем его, но не удаляем, оно нам ещё понадобится.
 
