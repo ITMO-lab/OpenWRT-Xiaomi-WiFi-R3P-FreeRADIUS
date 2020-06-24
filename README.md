@@ -236,11 +236,7 @@
 
 После чего вы можете прописать `ssh root@192.168.1.1` и увидеть успешный вход в систему. 
 
-![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/1.png)
-
-
-
-
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/1_1.png)
 
 ## 4.2  Восстановление роутера из состояния кирпича
 
