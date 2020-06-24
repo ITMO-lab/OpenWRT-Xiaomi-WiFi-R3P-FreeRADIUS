@@ -84,3 +84,8 @@
 ![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/6.png)
 
 Думаю, тут очевидно, куда нажимать. Только не забудьте подключиться к новой Wi-Fi сети )
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/7.png)
+
+Попадаем в такое меню. Здесь вводим пароль от роутера и нажимаем стрелочку. При первом входе роутер предложит провести некоторые настройки. Там есть синяя кнопка.     НЕ     НАЖИМАЙТЕ     НА     НЕЁ     . Вместо этого нажмите на подчёркнутый текст под кнопкой. Это пропустит гайд по этой прошивке.
+
