@@ -334,9 +334,7 @@
 
 ![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/13.png)
 
-Проходим процесс авторизации без пароля (просто нажимаем "Войти") и быстро переходим в "System" -> "Backup / Flash Firmware" -> Выбираете файл (выбираем наш openwrt-ramips-mt7621-xiaomi_mir3p-squashfs-sysupgrade.bin) -> "Flash image..."
-
-Важно НЕ снимать галочку с "Keep settings". 
+Проходим процесс авторизации без пароля (просто нажимаем "Войти") и быстро переходим в "System" -> "Backup / Flash Firmware" -> Выбираете файл (выбираем наш openwrt-ramips-mt7621-xiaomi_mir3p-squashfs-sysupgrade.bin) -> "Flash image...", **не снимая галочку с "Keep settings", это важно**.
 
 ![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/13.png)
 
@@ -360,7 +358,7 @@
 
 ![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/3.png)
 
-Далее нажимаем "Browse...", выбираем файл "OpenWRT-19.07.1-MiR3P-sysupgrade.bin" и нажимаем Upload.
+Далее нажимаем "Browse...", выбираем файл "OpenWRT-19.07.1-MiR3P-sysupgrade.bin" и нажимаем Upload, **не снимая галочку с "Keep settings", это важно**.
 
 ![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/4.png)
 
