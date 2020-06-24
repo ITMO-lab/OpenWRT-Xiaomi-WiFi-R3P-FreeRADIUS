@@ -94,3 +94,18 @@
 Во-первых, загрузите Xiaomi «прошивку разработчика» с http://cdn.cnbj1.fds.api.mi-img.com/xiaoqiang/rom/r3p/miwifi_r3p_firmware_daddf_2.13.65.bin
 
 Или воспользуйтесь его копией на github [miwifi_r3p_firmware_daddf_2.13.65.bin](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/firmware/xiaomi-developer/miwifi_r3p_firmware_daddf_2.13.65.bin), ведь его могут убрать из открытых источников.
+
+Далее по кабелю подключаемся или WiFi к роутеру и переходим на http://192.168.31.1
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/3/1.png)
+
+Войдите в систему и найдите страницу, на которой вы можете обновить прошивку (найдите большую желтую точку с «i» внутри).
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/3/2.png)
+
+Здесь выбираете обновление прошивки вручную.
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/3/3.png)
+
+Вы увидите номер версии маршрутизатора, а внизу есть кнопка, где вы можете загрузить файл. 
+Загрузите miwifi_r3p_firmware_daddf_2.13.65.bin (прошивка для разработчиков), нажмите синюю кнопку и подождите несколько минут.
