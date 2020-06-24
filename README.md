@@ -244,11 +244,33 @@
 
 `opkg install luci`
 
-Следующий пункт является обязательным
-
 ## 4.2  Обновление ядра (или восстановление роутера из состояния кирпича)
 
-123
+Этот пункт является обязательным для всех. Если у вас не подходящая версия ядра, тогда sysupgrade из 4.3 приведёт только к неработоспособности роутера как роутер (WiFi раздаёт, но интернет не видит, а также не работает web gui и ssh). 
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/photos/20200624_162705.jpg)
+
+Важно отметить, что гарантия на роутер теряется уже после разборки роутера, для проверки этого на нём предусмотрен один болт с наклейкой.
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/photos/20200624_162631.jpg)
+
+Конечно можно полностью разобрать корпус, выкрутив из под прорезиненных ножек 4 болта,
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/photos/20200624_162343.jpg)
+
+Выковыряв ножом с боков пластиковые вставки,
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/photos/20200624_162501.jpg)
+
+И достать плату роутера (с огромным радиатором)... 
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/photos/20200624_162400.jpg)
+
+Но зачем нам все эти сложности, ведь нам нужен только доступ к UART разъёму?
+
+
+
+
 
 ## 4.3  Установка новой прошивки роутера
 
