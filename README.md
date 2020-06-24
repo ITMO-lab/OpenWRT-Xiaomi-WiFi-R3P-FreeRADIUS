@@ -178,7 +178,13 @@
 
 ## 4.1  Переход от прошивки Xiaomi к базовой прошивке OpenWRT
 
-123
+Вытаскиваем флешку из роутера, она нам понадобится. 
+
+Скачиваем с офф сайта прошивку OpenWRT: [openwrt-ramips-mt7621-xiaomi_mir3p-squashfs-factory.bin](https://downloads.openwrt.org/snapshots/targets/ramips/mt7621/openwrt-ramips-mt7621-xiaomi_mir3p-squashfs-factory.bin)
+
+Но лучше с моего клона на гите, ведь сайт могут и закрыть или версию обновить: [openwrt-ramips-mt7621-xiaomi_mir3p-squashfs-factory.bin](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/firmware/openwrt-ramips-mt7621/openwrt-ramips-mt7621-xiaomi_mir3p-squashfs-factory.bin)
+
+
 
 ## 4.2  Восстановление роутера из состояния кирпича
 
