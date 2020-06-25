@@ -372,15 +372,56 @@
 
 Важно, чтобы сейчас у вас не отключили свет, ведь иначе вам потребуется сначала пройти пункт 4.2, а потом пройти 4.3 сначала. Процесс загрузки может занять продолжительное время. После завершения загрузки, вам будет доступен web gui, ssh и ещё много пакетов. Уже на этом этапе можно закончить, ведь WiFi работает, а протоколы безопасности установлены, но зачем нам на таком крутом роутере какой-то там WPA2-PSK, если, помимо WPA3, мы  можем поднять настоящий шедевр безопасности - WPA2-Enterprise.
 
-Эх, люблю этот интерфейс :D
-
-![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/4/15.png)
-
 # 5 Первая полноценная настройка роутера
 
 
 
+Эх, люблю этот интерфейс :D
 
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/1.png)
 
+Входим в систему, где нам сразу намекают, что пароль от роутера не выставлен. Соглашаемся и нажимаем "Перейти к настройке пароля..."
 
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/2.png)
 
+Там всё просто - устанавливаем пароль от роутера на свой вкус **важно, что это не пароль от WiFi. Это пароль от пользователя root и от админки на роутере** 
+
+Далее нам нужно настроить конфигурацию WiFi, заодно и проверим, как работает WiFi. По большей части, в этой прошивке уже всё настроено, но вы можете покопаться и поменять всё на свой вкус. 
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/3.png)
+
+В меню "Сеть" -> "WiFI" можно настроить WiFi. Необходимо выставить всё, как на фото (часть настроек взята с https://4pda.ru/forum/index.php?showtopic=810698&st=3200#entry82315996)
+
+Сначала настроем 2.4 G (не забудьте нажать "сохранить")
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/4.png)
+
+Потом 5 G
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/5.png)
+
+После установки настроек, применяем их кнопкой: "Сохранить и применить..."
+
+На этом этапе можно вылезти из красивого web gui и погрузиться в консоль, а ля настоящий программист. (ну или почти :p) Напоминаю, что делается это через `ssh root@192.168.1.1`, а пароль - тот самый пароль от web gui.
+
+Сначала установим самые базовые пакеты. Да, к роутеру должен быть подключён кабель с интернетом.
+
+В консоли роутера пишем (опять же, все команды вводить по одной. у нас тут не bash, а просто ash, и всё может крякнуться):
+
+`opkg update`  - аналог "apt update" в ubuntu
+
+`opkg list-upgradable | cut -f 1 -d ' ' | xargs opkg upgrade`  - аналог "apt upgrade" в ubuntu. Да, полноценной команды в opkg не завезли, но пакеты роутера не рассчитаны на то, чтобы их часто обновляли.
+
+Эту команду нужно повторять вводить в консоли до тех пор, пока она не станет выводить идентичные "help" сообщения, заканчивающиеся на:
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/6.png)
+
+У меня это заняло 2 запуска команды.
+
+После этого хорошо бы перезагрузиться. Это не обязательно, но я перезагрузился.
+
+`reboot` 
+
+После перезагрузки можно заново подключиться к роутеру и установить 4 самых базовых пакета (git и git-http за один):
+
+`opkg install nano htop bash git git-http` - можете использовать и "vi" (предустановлен) вместо "nano", кому как проще.
