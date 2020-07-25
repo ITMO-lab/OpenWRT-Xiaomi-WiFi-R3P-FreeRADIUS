@@ -410,6 +410,12 @@ P.S. пароль от пользователя root в той прошивке 
 
 ![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/11.png)
 
+После чего выключаем Adblock. И, да, в этот роутер встроен Adblock, KMS сервер, NAS и многое другое. Проблема в том, что  Adblock может порезать скорость общения с сетью, хотя и работает просто прекрасно, скрывает рекламу, а сайты думают, что Adblock не установлен, и не выкидывают просьбу его отключить. Отключается он достаточно просто. В выключенном состоянии на кнопке должно быть написано "**Включить**". 
+
+Только после отключения требуется перезагрузить роутер и убедиться, что статус "Состояние Adblock" - "disabled". Почему-то просто так сервис не хочет выключаться. 
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/12.png)
+
 Далее нам нужно настроить конфигурацию WiFi, заодно и проверим, как работает WiFi. По большей части, в этой прошивке уже всё настроено, но вы можете покопаться и поменять всё на свой вкус. 
 
 ![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/3.png)
