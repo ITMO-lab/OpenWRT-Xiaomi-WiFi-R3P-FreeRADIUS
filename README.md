@@ -484,3 +484,7 @@ P.S. пароль от пользователя root в той прошивке 
 
 
 
+`opkg install nano htop bash git git-http`
+
+
+
