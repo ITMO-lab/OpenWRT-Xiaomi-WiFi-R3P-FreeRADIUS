@@ -420,7 +420,7 @@ P.S. пароль от пользователя root в той прошивке 
 
 Далее нам нужно настроить конфигурацию WiFi, заодно и проверим, как работает WiFi. По большей части, в этой прошивке уже всё настроено, но вы можете покопаться и поменять всё на свой вкус. 
 
-
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/3.png)
 
 В меню "Сеть" -> "WiFI" можно настроить WiFi. Необходимо выставить всё, как на фото (часть настроек взята с https://4pda.ru/forum/index.php?showtopic=810698&st=3200#entry82315996)
 
