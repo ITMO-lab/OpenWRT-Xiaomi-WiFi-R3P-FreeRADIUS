@@ -1,3 +1,3 @@
 echo "1. setup base packages"
 ls -l pkgs/base
-opkg -i pkgs/base *.ipk
+opkg --nodeps --force-reinstall --force-overwrite --force-downgrade install pkgs/base *.ipk
