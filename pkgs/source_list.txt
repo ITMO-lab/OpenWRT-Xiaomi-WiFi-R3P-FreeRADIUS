@@ -1,0 +1,11 @@
+http://downloads.openwrt.org/releases/19.07.1/targets/ramips/mt7621/packages/
+
+http://downloads.openwrt.org/releases/19.07.1/packages/mipsel_24kc/base/
+
+http://downloads.openwrt.org/releases/19.07.1/packages/mipsel_24kc/luci/
+
+http://downloads.openwrt.org/releases/19.07.1/packages/mipsel_24kc/packages/
+
+http://downloads.openwrt.org/releases/19.07.1/packages/mipsel_24kc/routing/
+
+http://downloads.openwrt.org/releases/19.07.1/packages/mipsel_24kc/telephony/
