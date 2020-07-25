@@ -392,6 +392,10 @@ P.S. пароль от пользователя root в той прошивке 
 
 Там всё просто - устанавливаем пароль от роутера на свой вкус **важно, что это не пароль от WiFi. Это пароль от пользователя root и от админки на роутере** 
 
+Теперь можно поменять имя машины роутера. Рекомендую выбрать имя, совпадающее с именем WiFi.
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/8.png)
+
 Далее нам нужно настроить конфигурацию WiFi, заодно и проверим, как работает WiFi. По большей части, в этой прошивке уже всё настроено, но вы можете покопаться и поменять всё на свой вкус. 
 
 ![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/3.png)
