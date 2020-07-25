@@ -6,6 +6,6 @@ opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overw
 opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/base/git_*.ipk
 opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/base/git-http_*.ipk
 echo
-echo "========= 2. setup freeradius3 ========="
+echo "========= 2. setup freeradius3 packages ========="
 
 
