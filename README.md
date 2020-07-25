@@ -478,7 +478,7 @@ P.S. пароль от пользователя root в той прошивке 
 
 Теперь у вас есть директория, куда смонтирована флешка. Далее процесс установки будет максимально простым.
 
-`cd USB/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin; ash setup.ash`
+`cd; cd USB/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin; ash setup.ash`
 
 Начнётся процесс установки...
 
