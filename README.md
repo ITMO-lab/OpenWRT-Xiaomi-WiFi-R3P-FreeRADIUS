@@ -390,11 +390,25 @@ P.S. пароль от пользователя root в той прошивке 
 
 ![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/2.png)
 
-Там всё просто - устанавливаем пароль от роутера на свой вкус **важно, что это не пароль от WiFi. Это пароль от пользователя root и от админки на роутере** 
+Там всё просто - устанавливаем пароль от роутера на свой вкус **важно, что это не пароль от WiFi. Это пароль от пользователя root и от админки на роутере**
 
 Теперь можно поменять имя машины роутера. Рекомендую выбрать имя, совпадающее с именем WiFi.
 
 ![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/8.png)
+
+Далее настраиваем DHCP, чтобы не возникало проблем с перенаправлением при длительном стриминге данных. 
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/9.png)
+
+Сначала с этим расширим область выделяемых адресов. меняя маску подсети на 255.0.0.0. Адрес роутера меняем на 192.0.0.0. 
+
+После применения настроек ("Сохранить и применить...") нужно перейти на [новый адрес роутера](http://192.0.0.0/) и авторизоваться. После идём в то же меню и продолжаем настройку. 
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/10.png)
+
+Аренду начинаем с "10", чтобы оставить место под зарезервированные адреса 192.0.0.0-10, а заканчиваем "256 * 256 * 256 - 10", что равно "16777206". Время аренды ставим на "2^31 - 1" часов, что соответствует "2147483647h". Снова применяем настройки ("Сохранить и применить...").
+
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/11.png)
 
 Далее нам нужно настроить конфигурацию WiFi, заодно и проверим, как работает WiFi. По большей части, в этой прошивке уже всё настроено, но вы можете покопаться и поменять всё на свой вкус. 
 
