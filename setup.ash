@@ -54,6 +54,13 @@ echo "========= 6. install freeradius3 modifications ========="
 opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/freeradius3/freeradius3-mod-*.ipk
 echo
 echo "========= 7. configuring freeradius3 ========="
+cp pkgs/freeradius3_setup/clients.conf /etc/freeradius3/clients.conf
+secret="testing123321"
+echo "# localhost" >> /etc/freeradius3/clients.conf
+echo "client localhost {" >> /etc/freeradius3/clients.conf
+echo "        secret = $secret" >> /etc/freeradius3/clients.conf
+echo "}" >> /etc/freeradius3/clients.conf
+echo "" >> /etc/freeradius3/clients.conf
 
 
 service radiusd stop
