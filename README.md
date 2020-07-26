@@ -416,13 +416,15 @@ P.S. пароль от пользователя root в той прошивке 
 
 ![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/9.png)
 
-Сначала с этим расширим область выделяемых адресов, меняя маску подсети на 255.0.0.0 и применяем ("Сохранить и применить..."). После чего нужно перезагрузить роутер и отдельным запросом поменять адрес роутера на 192.0.0.0, после чего снова применить ("Сохранить и применить..."). Теперь нужно быстро перейти на [новый адрес роутера](http://192.0.0.0/cgi-bin/luci/admin/network/network) и авторизоваться. После идём в то же меню и продолжаем настройку.
+Сначала с этим расширим область выделяемых адресов, меняя маску подсети на 255.0.0.0 и применяем ("Сохранить и применить...").
 
-![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/10.png)
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/15.png)
 
-Аренду начинаем с "10", чтобы оставить место под зарезервированные адреса 192.0.0.0-10, а заканчиваем "256^3 - 10", что равно "16777206". Время аренды ставим на "infinite". Снова применяем настройки ("Сохранить и применить...").
+Аренду начинаем с "192.0.0.0", а заканчиваем "256^3", что равно "16777216". Время аренды ставим на "infinite". Снова применяем настройки ("Сохранить и применить...").
 
-![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/11.png)
+![img](https://github.com/ITMO-lab/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin/blob/images/screenshots/5/16.png)
+
+Адрес роутера менять с "192.168.1.1" не рекомендуется, так как из-за этого сеть (конкретно интернет, а не локалка) отваливается у смартфонов samsung точно, может, вообще у всех смартфонов тоже. 
 
 После чего выключаем Adblock. И, да, в этот роутер встроен Adblock, KMS сервер, NAS и многое другое. Проблема в том, что  Adblock может порезать скорость общения с сетью, хотя и работает просто прекрасно, скрывает рекламу, а сайты думают, что Adblock не установлен, и не выкидывают просьбу его отключить. Отключается он достаточно просто. В выключенном состоянии на кнопке должно быть написано "**Включить**". 
 

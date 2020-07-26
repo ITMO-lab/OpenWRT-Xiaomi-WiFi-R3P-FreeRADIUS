@@ -56,10 +56,12 @@ echo
 echo "========= 7. configuring freeradius3 ========="
 service radiusd stop
 cp pkgs/freeradius3_setup/clients.conf /etc/freeradius3/clients.conf
-FREERADIUS3_SECRET=$(< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-128})
-echo "# localhost" >> /etc/freeradius3/clients.conf
-echo "client localhost {" >> /etc/freeradius3/clients.conf
+FREERADIUS3_SECRET=$(< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-64})
+echo "# 127.0.0.1" >> /etc/freeradius3/clients.conf
+echo "client 127.0.0.1 {" >> /etc/freeradius3/clients.conf
 echo "        secret = $FREERADIUS3_SECRET" >> /etc/freeradius3/clients.conf
+echo "        shortname = localhost" >> /etc/freeradius3/clients.conf
+echo "        ipaddr = 127.0.0.1" >> /etc/freeradius3/clients.conf
 echo "}" >> /etc/freeradius3/clients.conf
 echo "" >> /etc/freeradius3/clients.conf
 echo "freeradius3 server configurated"
@@ -72,9 +74,8 @@ echo
 echo "=============================================="
 echo
 cp pkgs/freeradius3_setup/authorize /etc/freeradius3/mods-config/files/authorize
-FREERADIUS3_ROOT_PASSWORD=$(< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-128})
+FREERADIUS3_ROOT_PASSWORD=$(< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-64})
 echo "root    Cleartext-Password := \"$FREERADIUS3_ROOT_PASSWORD\"" >> /etc/freeradius3/mods-config/files/authorize
-echo "        Reply-Message := \"I love you, %{User-Name}\"" >> /etc/freeradius3/mods-config/files/authorize
 echo "" >> /etc/freeradius3/mods-config/files/authorize
 echo
 echo "freeradius3 root account created"
@@ -89,16 +90,16 @@ echo
 
 
 
-
 service radiusd stop
 
 radiusd -X
-echo "User-Name=root,User-Password=v988djWhP50zCylq2ir5EGtnwkOymB2zvV7aozfPbnycSbw2OpRGVqq8XfiBLRPVKUsSBN0af8Lkc0ZrYk3RQ1HI6ds57hkwZGlyFUMDqWrwJbSuP1FtDZ0jqHRyU2zg" | radclient localhost:1812 auth hDZGRvePtsY16Z4X9aecPeyXGFKPhbxJ6qx9jnuYPyrPryjH2P5thEJsv7lL6Naj0bHv5XNpGP7xcDOgiinLKUVDmI68x3ZVA7G4s7nJIk8X0W4EA1PB6UouW5Rvg5Il
+echo "User-Name=root,User-Password=2LV68hcuPhqY7HhpPiZExqQWSYX9wZpBF2zRyIY0qwZkYqnNUUMXu3HqYI7DYeC4" | radclient localhost:1812 auth O3tCLUDzuA8utSrPzAmw2fx5UrbNy0qjq4ZJeSYq389BRshq3hHnF0gz5Bnx7ym5
 
+STANTION-Nemesis
 
-FREERADIUS3_SECRET = hDZGRvePtsY16Z4X9aecPeyXGFKPhbxJ6qx9jnuYPyrPryjH2P5thEJsv7lL6Naj0bHv5XNpGP7xcDOgiinLKUVDmI68x3ZVA7G4s7nJIk8X0W4EA1PB6UouW5Rvg5Il
+FREERADIUS3_SECRET = O3tCLUDzuA8utSrPzAmw2fx5UrbNy0qjq4ZJeSYq389BRshq3hHnF0gz5Bnx7ym5
 
-FREERADIUS3_ROOT_PASSWORD = v988djWhP50zCylq2ir5EGtnwkOymB2zvV7aozfPbnycSbw2OpRGVqq8XfiBLRPVKUsSBN0af8Lkc0ZrYk3RQ1HI6ds57hkwZGlyFUMDqWrwJbSuP1FtDZ0jqHRyU2zg
+FREERADIUS3_ROOT_PASSWORD = 2LV68hcuPhqY7HhpPiZExqQWSYX9wZpBF2zRyIY0qwZkYqnNUUMXu3HqYI7DYeC4
 
 nano /etc/freeradius3/mods-config/files/authorize 
 
