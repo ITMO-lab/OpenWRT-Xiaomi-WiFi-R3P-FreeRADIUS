@@ -53,15 +53,17 @@ echo
 echo "========= 6. install freeradius3 modifications ========="
 opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/freeradius3/freeradius3-mod-*.ipk
 echo
-echo "========= 7. configuring freeradius3 ========="
+echo "========= 7. upgrade openssl and wpad ========="
+opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/openssl/*.ipk
+echo
+echo "========= 8. configuring freeradius3 ========="
 service radiusd stop
 cp pkgs/freeradius3_setup/clients.conf /etc/freeradius3/clients.conf
 FREERADIUS3_SECRET=$(< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-64})
-echo "# 127.0.0.1" >> /etc/freeradius3/clients.conf
-echo "client 127.0.0.1 {" >> /etc/freeradius3/clients.conf
+echo "# 192.168.1.1" >> /etc/freeradius3/clients.conf
+echo "client 192.168.1.1 {" >> /etc/freeradius3/clients.conf
 echo "        secret = $FREERADIUS3_SECRET" >> /etc/freeradius3/clients.conf
-echo "        shortname = localhost" >> /etc/freeradius3/clients.conf
-echo "        ipaddr = 127.0.0.1" >> /etc/freeradius3/clients.conf
+echo "        ipaddr = 192.168.1.1" >> /etc/freeradius3/clients.conf
 echo "}" >> /etc/freeradius3/clients.conf
 echo "" >> /etc/freeradius3/clients.conf
 echo "freeradius3 server configurated"
@@ -93,13 +95,13 @@ echo
 service radiusd stop
 
 radiusd -X
-echo "User-Name=root,User-Password=2LV68hcuPhqY7HhpPiZExqQWSYX9wZpBF2zRyIY0qwZkYqnNUUMXu3HqYI7DYeC4" | radclient localhost:1812 auth O3tCLUDzuA8utSrPzAmw2fx5UrbNy0qjq4ZJeSYq389BRshq3hHnF0gz5Bnx7ym5
+echo "User-Name=root,User-Password=kHNGt92b9FhKSx70hy7LNkclKE3tpS3BAgnNUznKhUOJsGSJV6ITwMiXgmxwlmtB" | radclient 192.168.1.1:1812 auth IUJGUi0ycHtD6gmz3Q7UxU4QSkaqxppj4zbvBI11WVTYzAAtEPtoQJ5DfNAs2OjI
 
 STANTION-Nemesis
 
-FREERADIUS3_SECRET = O3tCLUDzuA8utSrPzAmw2fx5UrbNy0qjq4ZJeSYq389BRshq3hHnF0gz5Bnx7ym5
+FREERADIUS3_SECRET = IUJGUi0ycHtD6gmz3Q7UxU4QSkaqxppj4zbvBI11WVTYzAAtEPtoQJ5DfNAs2OjI
 
-FREERADIUS3_ROOT_PASSWORD = 2LV68hcuPhqY7HhpPiZExqQWSYX9wZpBF2zRyIY0qwZkYqnNUUMXu3HqYI7DYeC4
+FREERADIUS3_ROOT_PASSWORD = kHNGt92b9FhKSx70hy7LNkclKE3tpS3BAgnNUznKhUOJsGSJV6ITwMiXgmxwlmtB
 
 nano /etc/freeradius3/mods-config/files/authorize 
 
