@@ -476,9 +476,41 @@ P.S. пароль от пользователя root в той прошивке 
 
 `cd; cd USB/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin; ash setup.ash`
 
-Начнётся процесс установки...
+Сохраните **FREERADIUS3_SECRET** и **FREERADIUS3_ROOT_PASSWORD**, эти значения понадобятся. 
 
-Ох, блин, вот вам тут легко, просто команду запускаете в баше, а я сижу и пакеты ищу, чтобы всё собралось вообще, а ещё мануал пишу...
+**Имя** пользователя и **пароль**, которые останутся у вас независимо от того, что вы меняете в базе данных:
+
+**root**	-	**FREERADIUS3_ROOT_PASSWORD**
+
+**FREERADIUS3_SECRET** же нужен для обращения к RADIUS серверу.
+
+Теперь можно настроить WiFi, вручную отредактировав файл **/etc/config/wireless**. Поменяйте default_radio0 и default_radio1 на предоставленные ниже:
+
+`config wifi-iface 'default_radio0'
+        option device 'radio0'
+        option network 'lan'
+        option mode 'ap'
+        option ssid 'STANTION-Nemesis'
+        option encryption 'wpa2+ccmp'
+        option auth_server '192.168.1.1'
+        option auth_secret '$FREERADIUS3_SECRET'
+        option wpa_disable_eapol_key_retries '1'
+        option short_preamble '0'
+        option ieee80211w '1'
+        option disassoc_low_ack '0'`
+
+`config wifi-iface 'default_radio1'
+        option device 'radio1'
+        option network 'lan'
+        option mode 'ap'
+        option ssid 'STANTION-Nemesis-5G'
+        option encryption 'wpa2+ccmp'
+        option auth_server '192.168.1.1'
+        option auth_secret 'IUJGUi0ycHtD6gmz3Q7UxU4QSkaqxppj4zbvBI11WVTYzAAtEPtoQJ5DfNAs2OjI'
+        option wpa_disable_eapol_key_retries '1'
+        option short_preamble '0'
+        option ieee80211w '1'
+        option disassoc_low_ack '0'`
 
 
 

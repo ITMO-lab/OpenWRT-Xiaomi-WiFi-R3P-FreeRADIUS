@@ -89,20 +89,13 @@ echo $FREERADIUS3_ROOT_PASSWORD
 echo
 echo "=============================================="
 echo
-
-
-
-service radiusd stop
-
-radiusd -X
-echo "User-Name=root,User-Password=kHNGt92b9FhKSx70hy7LNkclKE3tpS3BAgnNUznKhUOJsGSJV6ITwMiXgmxwlmtB" | radclient 192.168.1.1:1812 auth IUJGUi0ycHtD6gmz3Q7UxU4QSkaqxppj4zbvBI11WVTYzAAtEPtoQJ5DfNAs2OjI
-
-STANTION-Nemesis
-
-FREERADIUS3_SECRET = IUJGUi0ycHtD6gmz3Q7UxU4QSkaqxppj4zbvBI11WVTYzAAtEPtoQJ5DfNAs2OjI
-
-FREERADIUS3_ROOT_PASSWORD = kHNGt92b9FhKSx70hy7LNkclKE3tpS3BAgnNUznKhUOJsGSJV6ITwMiXgmxwlmtB
-
-nano /etc/freeradius3/mods-config/files/authorize 
-
-
+echo
+echo "=============================================="
+echo
+echo "for all windows 10 users - you should enable tls 1.2+"
+echo "https://support.microsoft.com/ru-ru/help/3121002/windows-10-devices-can-t-connect-to-an-802-1x-environment"
+echo
+echo "=============================================="
+echo
+# radiusd -X
+# echo "User-Name=root,User-Password=passwd" | radclient 192.168.1.1:1812 auth secret
