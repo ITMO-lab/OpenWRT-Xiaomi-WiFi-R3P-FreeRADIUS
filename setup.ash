@@ -17,9 +17,33 @@ opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overw
 opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/freeradius3/freeradius3-democerts_*.ipk
 
 opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/freeradius3/python3_*.ipk
-opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/freeradius3/libpq_*.ipk
-opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/freeradius3/libopenldap_*.ipk
 
+ * satisfy_dependencies_for: Cannot satisfy the following dependencies for python3:
+ *      python3-light
+ *      python3-unittest
+ *      python3-ncurses
+ *      python3-ctypes
+ *      python3-pydoc
+ *      python3-logging
+ *      python3-multiprocessing
+ *      python3-urllib
+ *      python3-gdbm
+ *      python3-sqlite3
+ *      python3-xml
+ *      python3-codecs
+ *      python3-email
+ *      python3-distutils
+ *      python3-openssl
+ *      python3-cgi
+ *      python3-cgitb
+ *      python3-dbm
+ *      python3-asyncio
+ *      python3-lzma
+ *      python3-decimal
+
+opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/freeradius3/libpq_*.ipk
+opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/freeradius3/libsasl2_*.ipk
+opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/freeradius3/libopenldap_*.ipk
 
 opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/freeradius3/freeradius3-mod-*.ipk
 
