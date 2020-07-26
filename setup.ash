@@ -88,6 +88,8 @@ echo
 echo $FREERADIUS3_ROOT_PASSWORD
 echo
 echo "=============================================="
+echo "You can change it in /etc/freeradius3/mods-config/files/authorize"
+echo "=============================================="
 echo
 echo "for all windows 10 users - you should enable tls 1.2+"
 echo "https://support.microsoft.com/ru-ru/help/3121002/windows-10-devices-can-t-connect-to-an-802-1x-environment"
