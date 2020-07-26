@@ -54,25 +54,45 @@ echo "========= 6. install freeradius3 modifications ========="
 opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/freeradius3/freeradius3-mod-*.ipk
 echo
 echo "========= 7. configuring freeradius3 ========="
+service radiusd stop
 cp pkgs/freeradius3_setup/clients.conf /etc/freeradius3/clients.conf
-FREERADIUS3_SECRET="testing123321"
+FREERADIUS3_SECRET=$(< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-128})
 echo "# localhost" >> /etc/freeradius3/clients.conf
 echo "client localhost {" >> /etc/freeradius3/clients.conf
 echo "        secret = $FREERADIUS3_SECRET" >> /etc/freeradius3/clients.conf
 echo "}" >> /etc/freeradius3/clients.conf
 echo "" >> /etc/freeradius3/clients.conf
-echo
+echo "freeradius3 server configurated"
 echo "=============================================="
 echo "============ FREERADIUS3 SECRET is ==========="
+echo "=============================================="
+echo
 echo $FREERADIUS3_SECRET
+echo
+echo "=============================================="
+echo
+cp pkgs/freeradius3_setup/authorize /etc/freeradius3/mods-config/files/authorize
+FREERADIUS3_ROOT_PASSWORD=$(< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-128})
+echo "root    Cleartext-Password := \"$FREERADIUS3_ROOT_PASSWORD\"" >> /etc/freeradius3/mods-config/files/authorize
+echo "        Reply-Message := \"I love you, %{User-Name}\"" >> /etc/freeradius3/mods-config/files/authorize
+echo "" >> /etc/freeradius3/mods-config/files/authorize
+echo
+echo "freeradius3 root account created"
+echo "=============================================="
+echo "======== FREERADIUS3 ROOT PASSWORD is ========"
+echo "=============================================="
+echo
+echo $FREERADIUS3_ROOT_PASSWORD
+echo
 echo "=============================================="
 echo
 
 
 service radiusd stop
 radiusd -X
-echo "User-Name=bob,User-Password=hello" | radclient localhost:1812 auth testing123
+echo "User-Name=root,User-Password=hello" | radclient localhost:1812 auth hDZGRvePtsY16Z4X9aecPeyXGFKPhbxJ6qx9jnuYPyrPryjH2P5thEJsv7lL6Naj0bHv5XNpGP7xcDOgiinLKUVDmI68x3ZVA7G4s7nJIk8X0W4EA1PB6UouW5Rvg5Il
 
+nano /etc/freeradius3/mods-config/files/authorize 
 
-
+FREERADIUS3_SECRET = hDZGRvePtsY16Z4X9aecPeyXGFKPhbxJ6qx9jnuYPyrPryjH2P5thEJsv7lL6Naj0bHv5XNpGP7xcDOgiinLKUVDmI68x3ZVA7G4s7nJIk8X0W4EA1PB6UouW5Rvg5Il
 
