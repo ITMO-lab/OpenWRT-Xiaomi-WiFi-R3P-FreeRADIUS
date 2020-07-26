@@ -113,8 +113,6 @@ echo "        option encryption 'wpa2+ccmp'" >> /etc/config/wireless
 echo "        option auth_server '192.168.1.1'" >> /etc/config/wireless
 echo "        option auth_secret '$FREERADIUS3_SECRET'" >> /etc/config/wireless
 echo "        option wpa_disable_eapol_key_retries '1'" >> /etc/config/wireless
-echo "        option short_preamble '0'" >> /etc/config/wireless
-echo "        option ieee80211w '1'" >> /etc/config/wireless
 echo "        option disassoc_low_ack '0'" >> /etc/config/wireless
 echo "" >> /etc/config/wireless
 echo "config wifi-device 'radio1'" >> /etc/config/wireless
@@ -136,9 +134,5 @@ echo "        option encryption 'wpa2+ccmp'" >> /etc/config/wireless
 echo "        option auth_server '192.168.1.1'" >> /etc/config/wireless
 echo "        option auth_secret '$FREERADIUS3_SECRET'" >> /etc/config/wireless
 echo "        option wpa_disable_eapol_key_retries '1'" >> /etc/config/wireless
-echo "        option ieee80211w '1'" >> /etc/config/wireless
 echo "        option disassoc_low_ack '0'" >> /etc/config/wireless
 echo "" >> /etc/config/wireless
-
-# radiusd -X
-# echo "User-Name=root,User-Password=passwd" | radclient 192.168.1.1:1812 auth secret
