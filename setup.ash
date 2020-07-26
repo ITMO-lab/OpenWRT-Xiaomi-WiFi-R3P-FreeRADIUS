@@ -89,9 +89,6 @@ echo $FREERADIUS3_ROOT_PASSWORD
 echo
 echo "=============================================="
 echo
-echo
-echo "=============================================="
-echo
 echo "for all windows 10 users - you should enable tls 1.2+"
 echo "https://support.microsoft.com/ru-ru/help/3121002/windows-10-devices-can-t-connect-to-an-802-1x-environment"
 echo
