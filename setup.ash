@@ -1,13 +1,11 @@
 echo "========= 1. install base packages ========="
-opkg remove htop nano git-http tmux openssl-util
+opkg remove htop nano git-http tmux
 opkg remove git
 opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/base/htop_*.ipk
 opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/base/nano_*.ipk
 opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/base/git_*.ipk
 opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/base/git-http_*.ipk
 opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/base/tmux_*.ipk
-libopenssl-conf
-opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/base/openssl-util_*.ipk
 echo
 echo "========= 2. install freeradius3 dependencies ========="
 opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/freeradius3/libtalloc_*.ipk
