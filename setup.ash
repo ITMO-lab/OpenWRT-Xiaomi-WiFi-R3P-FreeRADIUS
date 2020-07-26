@@ -94,5 +94,51 @@ echo "https://support.microsoft.com/ru-ru/help/3121002/windows-10-devices-can-t-
 echo
 echo "=============================================="
 echo
+echo "config wifi-device 'radio0'" > /etc/config/wireless
+echo "        option type 'mac80211'" >> /etc/config/wireless
+echo "        option channel '1'" >> /etc/config/wireless
+echo "        option hwmode '11g'" >> /etc/config/wireless
+echo "        option path 'pci0000:00/0000:00:00.0/0000:01:00.0'" >> /etc/config/wireless
+echo "        option htmode 'HT40'" >> /etc/config/wireless
+echo "        option country 'RU'" >> /etc/config/wireless
+echo "        option noscan '1'" >> /etc/config/wireless
+echo "        option txpower '20'" >> /etc/config/wireless
+echo "" >> /etc/config/wireless
+echo "config wifi-iface 'default_radio0'" >> /etc/config/wireless
+echo "        option device 'radio0'" >> /etc/config/wireless
+echo "        option network 'lan'" >> /etc/config/wireless
+echo "        option mode 'ap'" >> /etc/config/wireless
+echo "        option ssid '$(uname -n)'" >> /etc/config/wireless
+echo "        option encryption 'wpa2+ccmp'" >> /etc/config/wireless
+echo "        option auth_server '192.168.1.1'" >> /etc/config/wireless
+echo "        option auth_secret '$FREERADIUS3_SECRET'" >> /etc/config/wireless
+echo "        option wpa_disable_eapol_key_retries '1'" >> /etc/config/wireless
+echo "        option short_preamble '0'" >> /etc/config/wireless
+echo "        option ieee80211w '1'" >> /etc/config/wireless
+echo "        option disassoc_low_ack '0'" >> /etc/config/wireless
+echo "" >> /etc/config/wireless
+echo "config wifi-device 'radio1'" >> /etc/config/wireless
+echo "        option type 'mac80211'" >> /etc/config/wireless
+echo "        option channel '36'" >> /etc/config/wireless
+echo "        option hwmode '11a'" >> /etc/config/wireless
+echo "        option path 'pci0000:00/0000:00:01.0/0000:02:00.0'" >> /etc/config/wireless
+echo "        option country 'RU'" >> /etc/config/wireless
+echo "        option disabled '0'" >> /etc/config/wireless
+echo "        option txpower '23'" >> /etc/config/wireless
+echo "        option htmode 'VHT80'" >> /etc/config/wireless
+echo "" >> /etc/config/wireless
+echo "config wifi-iface 'default_radio1'" >> /etc/config/wireless
+echo "        option device 'radio1'" >> /etc/config/wireless
+echo "        option network 'lan'" >> /etc/config/wireless
+echo "        option mode 'ap'" >> /etc/config/wireless
+echo "        option ssid '$(uname -n)-5G'" >> /etc/config/wireless
+echo "        option encryption 'wpa2+ccmp'" >> /etc/config/wireless
+echo "        option auth_server '192.168.1.1'" >> /etc/config/wireless
+echo "        option auth_secret '$FREERADIUS3_SECRET'" >> /etc/config/wireless
+echo "        option wpa_disable_eapol_key_retries '1'" >> /etc/config/wireless
+echo "        option ieee80211w '1'" >> /etc/config/wireless
+echo "        option disassoc_low_ack '0'" >> /etc/config/wireless
+echo "" >> /etc/config/wireless
+
 # radiusd -X
 # echo "User-Name=root,User-Password=passwd" | radclient 192.168.1.1:1812 auth secret
