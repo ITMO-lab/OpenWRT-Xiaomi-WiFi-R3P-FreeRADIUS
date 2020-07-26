@@ -88,11 +88,18 @@ echo "=============================================="
 echo
 
 
+
+
 service radiusd stop
+
 radiusd -X
-echo "User-Name=root,User-Password=hello" | radclient localhost:1812 auth hDZGRvePtsY16Z4X9aecPeyXGFKPhbxJ6qx9jnuYPyrPryjH2P5thEJsv7lL6Naj0bHv5XNpGP7xcDOgiinLKUVDmI68x3ZVA7G4s7nJIk8X0W4EA1PB6UouW5Rvg5Il
+echo "User-Name=root,User-Password=v988djWhP50zCylq2ir5EGtnwkOymB2zvV7aozfPbnycSbw2OpRGVqq8XfiBLRPVKUsSBN0af8Lkc0ZrYk3RQ1HI6ds57hkwZGlyFUMDqWrwJbSuP1FtDZ0jqHRyU2zg" | radclient localhost:1812 auth hDZGRvePtsY16Z4X9aecPeyXGFKPhbxJ6qx9jnuYPyrPryjH2P5thEJsv7lL6Naj0bHv5XNpGP7xcDOgiinLKUVDmI68x3ZVA7G4s7nJIk8X0W4EA1PB6UouW5Rvg5Il
+
+
+FREERADIUS3_SECRET = hDZGRvePtsY16Z4X9aecPeyXGFKPhbxJ6qx9jnuYPyrPryjH2P5thEJsv7lL6Naj0bHv5XNpGP7xcDOgiinLKUVDmI68x3ZVA7G4s7nJIk8X0W4EA1PB6UouW5Rvg5Il
+
+FREERADIUS3_ROOT_PASSWORD = v988djWhP50zCylq2ir5EGtnwkOymB2zvV7aozfPbnycSbw2OpRGVqq8XfiBLRPVKUsSBN0af8Lkc0ZrYk3RQ1HI6ds57hkwZGlyFUMDqWrwJbSuP1FtDZ0jqHRyU2zg
 
 nano /etc/freeradius3/mods-config/files/authorize 
 
-FREERADIUS3_SECRET = hDZGRvePtsY16Z4X9aecPeyXGFKPhbxJ6qx9jnuYPyrPryjH2P5thEJsv7lL6Naj0bHv5XNpGP7xcDOgiinLKUVDmI68x3ZVA7G4s7nJIk8X0W4EA1PB6UouW5Rvg5Il
 
