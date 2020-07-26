@@ -54,7 +54,7 @@ echo "========= 6. install freeradius3 modifications ========="
 opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/freeradius3/freeradius3-mod-*.ipk
 echo
 echo "========= 7. upgrade openssl and wpad ========="
-opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/openssl/*.ipk
+opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/openssl/*.ipk
 echo
 echo "========= 8. configuring freeradius3 ========="
 service radiusd stop
