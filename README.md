@@ -18,7 +18,7 @@
 
 [**5. Первая полноценная настройка прошивки**](#5-первая-полноценная-настройка-прошивки)
 
-[**6. Установка FreeRADIUS и поднятие WPA2-Enterprise**](#6-установка-freeradius-и-поднятие-wpa2-enterprise)**](#5-первая-полноценная-настройка-прошивки)
+[**6. Установка FreeRADIUS и поднятие WPA2-Enterprise**](#6-установка-freeradius-и-поднятие-wpa2-enterprise)
 
 [**7. Установка SQLite и подключение БД учётных записей**](#7-установка-sqlite-и-подключение-бд-учётных-записей)
 
@@ -466,7 +466,7 @@ P.S. пароль от пользователя root в той прошивке 
 
 Теперь у вас есть директория, куда смонтирована флешка. Далее процесс установки будет максимально простым.
 
-`cd; cd USB/OpenWRT-for-Xiaomi-Mi-WiFi-router-Pro-r3p-with-FreeRADIUS-SQLite-and-SQLite-Web-Admin; ash setup.ash`
+`cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS; ash setup.ash`
 
 Сохраните **FREERADIUS3_SECRET** и **FREERADIUS3_ROOT_PASSWORD**, эти значения понадобятся. 
 
