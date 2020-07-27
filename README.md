@@ -609,7 +609,7 @@ chmod 755 /etc/init.d/sqlite_web
 cd
 ```
 
-Теперь необходимо поменять пароль от SQLite-web, для этого отредактируйте строку **SQLITE_WEB_PASSWORD="iloveyou"** в /etc/init.d/sqlite_web и поменяйте значение на ваш пароль:
+Теперь необходимо поменять пароль от SQLite-web, для этого отредактируйте строку **procd_set_param env SQLITE_WEB_PASSWORD="iloveyou"** в /etc/init.d/sqlite_web и поменяйте значение SQLITE_WEB_PASSWORD на ваш пароль:
 
 `nano /etc/init.d/sqlite_web`
 
