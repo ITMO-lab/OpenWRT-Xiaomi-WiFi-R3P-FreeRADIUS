@@ -462,7 +462,7 @@ P.S. пароль от пользователя root в той прошивке 
 
 Необходимо скачать репозиторий (ветка master) на свой компьютер [OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS](https://github.com/ITMO-lab/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS/archive/master.zip) и распаковать его, либо вы можете склонировать этот репозиторий, только к таком случае придётся клонировать ещё и неприлично большую папку **.git** (200+ МБ, взявшихся из неоткуда).
 
-`git clone https://github.com/ITMO-lab/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS.git`
+`git clone https://github.com/ITMO-lab/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS.git OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS-master`
 
 Переносим папку на флешку в корень. Желательно, чтобы флешка была с файловой системой fat-32, но моя ntfs тоже смонтировалась, пусть и поругалась немного. Как же работать с флешкой? Очень просто - вставляем в единственный usb порт и пишем *продуманную* команду:
 
@@ -470,11 +470,11 @@ P.S. пароль от пользователя root в той прошивке 
 
 Теперь у вас есть директория, куда смонтирована флешка. Далее процесс установки будет максимально простым. Если у вас Xiaomi R3P, впишите в консоль:
 
-`cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS; ash setup.ash`
+`cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS-master; ash setup.ash`
 
 Если же у вас другой роутер, убедитесь, что у вас есть интернет соединение и впишите:
 
-`cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS; ash setup_online.ash`
+`cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS-master; ash setup_online.ash`
 
 Только помните, если у вас другой роутер, вас самостоятельно придётся настраивать WiFi в web gui - подключать к нему сервер RADIUS. По умолчанию он запускается на 192.168.1.1 с дефолтными портами, а его **secret** отобразится в консоли.
 
@@ -506,7 +506,7 @@ P.S. пароль от пользователя root в той прошивке 
 
 Теперь, неожиданно, нужно установить sqlite. Если у вас Xiaomi R3P, пропишите в консоли:
 
-`cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS; opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/sqlite/*.ipk `
+`cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS-master; opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/sqlite/*.ipk `
 
 Если же у вас другой роутер:
 
@@ -515,7 +515,7 @@ P.S. пароль от пользователя root в той прошивке 
 И выполняем скрипт настройки sqlite. Он идентичен для всех роутеров, если только freeradius снова не сломают совместимость.
 
 ```
-cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS
+cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS-master
 rm -rf /etc/freeradius3/sqlite_rad.db
 cp pkgs/sqlite/schema.sql /etc/freeradius3/mods-config/sql/main/sqlite/schema.sql
 cp pkgs/sqlite/queries.conf /etc/freeradius3/mods-config/sql/main/sqlite/queries.conf
@@ -606,7 +606,7 @@ def open_browser_tab(host, port): - удаляем всю функцию, ибо
 Теперь остаётся только сделать из **sqlite_web** сервис, чтобы он запускался автоматически в фоне при старте системы, но такой сервис уже создан, и для его установки нужно прописать (если вы перезапускались, смонтируйте флешку заново):
 
 ```
-cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS
+cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS-master
 cp pkgs/sqlite/sqlite_web /etc/init.d/sqlite_web
 chmod 755 /etc/init.d/sqlite_web
 cd
