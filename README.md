@@ -564,3 +564,50 @@ driver = "rlm_sql_sqlite"
 
 После чего пытаемся зайти в WiFi с логином **user** и паролем **12345678**. Если всё прошло успешно, тогда я рад за вас, ведь вам не пришлось тратить на настройку системы столько же времени, сколько потратил я. Можете удалить тестового пользователя, но я это сделаю далее через Web-SQLite-Admin. И, да, для применения изменений в базе данных не нужно перезапускать сервис.
 
+Устанавливаю [sqlite-web](https://github.com/coleifer/sqlite-web) - простой сервис для администрирования SQLite
+
+`pip3 install sqlite-web`
+
+Тестовый запуск ни к чему хорошему не приведёт из-за одной фичи данного сервиса. Сначала нам нужно выключить использование webbrowser в единственном месте. Эта либа запускает в вашем браузере страницу SQLite-web. Только вот проблема в том, что ВнУтРи РоУтЕрА нет ни браузера, ни окружения рабочего стола, так что нам такие функции без надобности. Для исправления этого недоразумения открываем файл **/usr/lib/python3.7/site-packages/sqlite_web/sqlite_web.py** и редактируем его:
+
+```
+import webbrowser - удаляем
+
+...
+
+def open_browser_tab(host, port): - удаляем всю функцию, ибо зачем она нам?
+	...
+
+...
+
+    if options.browser: - удаляем обе строчки.
+        open_browser_tab(options.host, options.port) - они находятся в конце файла.
+```
+
+После этого без перезапуска (достоинство python) можем проверить работу SQLite-web: 
+
+`sqlite_web /etc/freeradius3/sqlite_rad.db -H 192.168.1.1 -p 8000 `
+
+Он должен запуститься на [http://192.168.1.1:8000/](http://192.168.1.1:8000/). После этого мы можем посмотреть учётные записи:
+
+![img](https://github.com/ITMO-lab/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS/blob/images/screenshots/7/1.png)
+
+И даже добавить свою, введя SQL запрос вида `INSERT INTO "radcheck" VALUES ({N},{USERNAME},'Cleartext-Password',':=',{PASSWORD})`: 
+
+![img](https://github.com/ITMO-lab/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS/blob/images/screenshots/7/2.png)
+
+После чего изменения отобразятся в таблице:
+
+![img](https://github.com/ITMO-lab/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS/blob/images/screenshots/7/3.png)
+
+Теперь остаётся только сделать из **sqlite_web** сервис, чтобы он запускался автоматически в фоне при старте системы, но такой сервис уже создан, и для его установки нужно прописать (если вы перезапускались, смонтируйте флешку заново):
+
+```
+cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS
+cp pkgs/sqlite/sqlite_web /etc/init.d/sqlite_web
+chmod 755 /etc/init.d/sqlite_web
+cd
+service sqlite_web enable
+service sqlite_web start
+```
+
