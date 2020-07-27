@@ -115,12 +115,14 @@ echo "config wifi-iface 'default_radio0'" >> /etc/config/wireless
 echo "        option device 'radio0'" >> /etc/config/wireless
 echo "        option network 'lan'" >> /etc/config/wireless
 echo "        option mode 'ap'" >> /etc/config/wireless
-echo "        option ssid '$(uname -n)'" >> /etc/config/wireless
+echo "        option ssid '$(uname -n)'" >> /etc/config/wireless	
 echo "        option encryption 'wpa2+ccmp'" >> /etc/config/wireless
 echo "        option auth_server '192.168.1.1'" >> /etc/config/wireless
 echo "        option auth_secret '$FREERADIUS3_SECRET'" >> /etc/config/wireless
 echo "        option wpa_disable_eapol_key_retries '1'" >> /etc/config/wireless
 echo "        option disassoc_low_ack '0'" >> /etc/config/wireless
+echo "        option acct_server '192.168.1.1'" >> /etc/config/wireless
+echo "        option acct_secret '$FREERADIUS3_SECRET'" >> /etc/config/wireless
 echo "" >> /etc/config/wireless
 echo "config wifi-device 'radio1'" >> /etc/config/wireless
 echo "        option type 'mac80211'" >> /etc/config/wireless
@@ -142,4 +144,6 @@ echo "        option auth_server '192.168.1.1'" >> /etc/config/wireless
 echo "        option auth_secret '$FREERADIUS3_SECRET'" >> /etc/config/wireless
 echo "        option wpa_disable_eapol_key_retries '1'" >> /etc/config/wireless
 echo "        option disassoc_low_ack '0'" >> /etc/config/wireless
+echo "        option acct_server '192.168.1.1'" >> /etc/config/wireless
+echo "        option acct_secret '$FREERADIUS3_SECRET'" >> /etc/config/wireless
 echo "" >> /etc/config/wireless

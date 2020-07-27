@@ -609,6 +609,8 @@ chmod 755 /etc/init.d/sqlite_web
 cd
 service sqlite_web enable
 service sqlite_web start
+service radiusd enable
+service radiusd start
 ```
 
 Через некоторое время сервер запустится и, я вас поздравляю, у вас есть возможность управлять учётными записями пользователей [http://192.168.1.1:8000/](http://192.168.1.1:8000/)
