@@ -1,3 +1,4 @@
+echo
 echo "========= 1. install base packages ========="
 opkg remove htop nano git-http tmux
 opkg remove git
@@ -18,6 +19,7 @@ opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overw
 echo
 echo "========= 3. install python3 ========="
 opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/freeradius3/python3_*.ipk
+opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/freeradius3/python3-pip_*.ipk
 echo
 echo "========= 4. install python3 dependencies ========="
 opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/freeradius3/python3-base_*.ipk

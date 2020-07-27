@@ -500,10 +500,67 @@ P.S. пароль от пользователя root в той прошивке 
 
 `cd; umount USB; rm -rf USB; mkdir USB; mount /dev/sda1 USB/`
 
+Прежде всего нужно выключить сервис radiusd:
+
+`service radiusd stop` 
+
 Теперь, неожиданно, нужно установить sqlite. Если у вас Xiaomi R3P, пропишите в консоли:
 
 `cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS; opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/sqlite/*.ipk `
 
+Если же у вас другой роутер:
+
+`opkg update; opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install libedit sqlite3-cli libsqlite3*`
+
 И выполняем скрипт настройки sqlite. Он идентичен для всех роутеров, если только freeradius снова не сломают совместимость.
 
-`cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS; ash sqlite.ash`
+```
+cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS
+cp pkgs/sqlite/schema.sql /etc/freeradius3/mods-config/sql/main/sqlite/schema.sql
+cp pkgs/sqlite/queries.conf /etc/freeradius3/mods-config/sql/main/sqlite/queries.conf
+sqlite3 /etc/freeradius3/sqlite_rad.db < /etc/freeradius3/mods-config/sql/main/sqlite/schema.sql
+ln -s /etc/freeradius3/mods-available/sql /etc/freeradius3/mods-enabled/sql
+```
+
+После чего нужно отредактировать файл **/etc/freeradius3/mods-enabled/sql** (например, в nano), чтобы он имел следующий вид.
+
+```
+sql {
+...
+dialect = "sqlite"
+...
+driver = "rlm_sql_sqlite"
+...
+	sqlite {
+		filename = "/etc/freeradius3/sqlite_rad.db"
+		# busy_timeout = 200 Просто важно закомментить.
+		bootstrap = "${modconfdir}/${..:name}/main/sqlite/schema.sql"
+	}
+...
+}
+```
+
+Можно тестировать, но сначала нужно создать какого-либо пользователя:
+
+`sqlite3 /etc/freeradius3/sqlite_rad.db`
+
+Откроется sqlite3-cli, в котором нужно добавить в бд пользователя:
+
+`insert into radcheck values ('1','user','Cleartext-Password',':=','12345678');`
+
+Проверить корректность вызова команды можно с помощью:
+
+`select * from radcheck;`
+
+Должна быть напечатана строка "1|user|Cleartext-Password|:=|12345678".
+
+Далее выходим из sqlite-cli, для этого можно ввести в консоли:
+
+`.quit`
+
+Для тестирования нам понадобится снова запустить radiusd:
+
+`radiusd -X`
+
+После чего пытаемся зайти в WiFi с логином **user** и паролем **12345678**. Если всё прошло успешно, тогда я рад за вас, ведь вам не пришлось тратить на настройку системы столько же времени, сколько потратил я. Можете удалить тестового пользователя, но я это сделаю далее через Web-SQLite-Admin. И, да, для применения изменений в базе данных не нужно перезапускать сервис.
+
