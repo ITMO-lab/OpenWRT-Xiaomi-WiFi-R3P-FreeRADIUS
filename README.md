@@ -516,7 +516,7 @@ P.S. пароль от пользователя root в той прошивке 
 
 ```
 cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS
-rm -rf pkgs/sqlite/schema.sql
+rm -rf /etc/freeradius3/sqlite_rad.db
 cp pkgs/sqlite/schema.sql /etc/freeradius3/mods-config/sql/main/sqlite/schema.sql
 cp pkgs/sqlite/queries.conf /etc/freeradius3/mods-config/sql/main/sqlite/queries.conf
 sqlite3 /etc/freeradius3/sqlite_rad.db < /etc/freeradius3/mods-config/sql/main/sqlite/schema.sql
