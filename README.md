@@ -364,7 +364,7 @@
 
 В ней настроено и сконфигурировано всё для функционирования драйверов для wifi, а также расширенных протоколов безопасности.
 
-Ссылка на клон на гите: [OpenWRT-19.07.1-MiR3P-sysupgrade.bin](https://github.com/ITMO-lab/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS/blob/firmware/OpenWRT-19.07.1-MiR3P-sysupgrade/OpenWRT-19.07.1-MiR3P-sysupgrade.bin)
+Ссылка на клон на гите: [OpenWRT-19.07.1-MiR3P-sysupgrade.bin](https://github.com/ITMO-lab/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS/raw/firmware/OpenWRT-19.07.1-MiR3P-sysupgrade/OpenWRT-19.07.1-MiR3P-sysupgrade.bin)
 
 Скачиваем и обновляемся. Для этого входим в роутер 192.168.1.1 и логинимся (по умолчанию пароль пустой)
 
