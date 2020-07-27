@@ -607,6 +607,15 @@ cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS
 cp pkgs/sqlite/sqlite_web /etc/init.d/sqlite_web
 chmod 755 /etc/init.d/sqlite_web
 cd
+```
+
+Теперь необходимо поменять пароль от SQLite-web, для этого отредактируйте строку **SQLITE_WEB_PASSWORD="iloveyou"** в /etc/init.d/sqlite_web и поменяйте значение на ваш пароль:
+
+`nano /etc/init.d/sqlite_web`
+
+После чего можно запустить все сервисы:
+
+```
 service sqlite_web enable
 service sqlite_web start
 service radiusd enable
