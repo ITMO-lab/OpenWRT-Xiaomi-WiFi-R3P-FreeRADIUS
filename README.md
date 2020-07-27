@@ -502,7 +502,7 @@ P.S. пароль от пользователя root в той прошивке 
 
 Теперь, неожиданно, нужно установить sqlite. Если у вас Xiaomi R3P, пропишите в консоли:
 
-
+`cd; cd USB/OpenWRT-Xiaomi-WiFi-R3P-FreeRADIUS; opkg --nodeps --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install pkgs/sqlite/*.ipk `
 
 И выполняем скрипт настройки sqlite. Он идентичен для всех роутеров, если только freeradius снова не сломают совместимость.
 
