@@ -526,6 +526,7 @@ ln -s /etc/freeradius3/mods-available/sql /etc/freeradius3/mods-enabled/sql
 После чего нужно отредактировать файл **/etc/freeradius3/mods-enabled/sql** (например, в nano), чтобы он имел следующий вид.
 
 ```
+...
 sql {
 ...
 dialect = "sqlite"
@@ -539,6 +540,7 @@ driver = "rlm_sql_sqlite"
 	}
 ...
 }
+...
 ```
 
 Можно тестировать, но сначала нужно создать какого-либо пользователя:
