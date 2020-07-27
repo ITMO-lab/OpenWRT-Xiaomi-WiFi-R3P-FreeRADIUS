@@ -1,4 +1,5 @@
-
+echo
+echo "========= 0. update packages list ========="
 opkg update
 opkg update
 echo "========= 1. install base packages ========="
