@@ -4,15 +4,13 @@ USE_PROCD=1
 
 START=50
 
-SQLITE_WEB_PASSWORD="iloveyou"
-
 NAME=sqlite_web
-PROG="export SQLITE_WEB_PASSWORD=$SQLITE_WEB_PASSWORD; /usr/bin/sqlite_web /etc/freeradius3/sqlite_rad.db -H 192.168.1.1 -p 8000 -P"
+PROG="/usr/bin/sqlite_web /etc/freeradius3/sqlite_rad.db -H 192.168.1.1 -p 8000 -P"
 
 start_service()
 {
         procd_open_instance
+        procd_set_param env SQLITE_WEB_PASSWORD="iloveyou"
         procd_set_param command $PROG
-        procd_set_param env LD_LIBRARY_PATH=/usr/lib/freeradius3
         procd_close_instance
 }
