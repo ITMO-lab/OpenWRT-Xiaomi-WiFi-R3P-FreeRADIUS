@@ -20,9 +20,10 @@ opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --fo
 echo
 echo "========= 3. install python3 ========="
 opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install python3
-opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install python3-pip
+opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install python3-pkg-resources
 opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install python3-setuptools
 opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install python-pip-conf
+opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install python3-pip
 echo
 echo "========= 4. install python3 dependencies ========="
 opkg --force-maintainer --force-depends --force-reinstall --force-overwrite --force-downgrade install python3-base
