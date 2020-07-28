@@ -584,7 +584,7 @@ python3 setup.py install
 
 Тестовый запуск ни к чему хорошему не приведёт из-за одной фичи данного сервиса. Сначала нам нужно выключить использование webbrowser в единственном месте. Эта либа запускает в вашем браузере страницу SQLite-web. Только вот проблема в том, что ВнУтРи РоУтЕрА нет ни браузера, ни окружения рабочего стола, так что нам такие функции без надобности. Для исправления этого недоразумения открываем файл **/usr/lib/python3.7/site-packages/sqlite_web/sqlite_web.py**  или **/usr/lib/python3.7/site-packages/sqlite_web-0.3.6-py3.7.egg/sqlite_web/sqlite_web.py** и редактируем его общей командой, так как он точно один:
 
-`nano /usr/lib/python3.7/site-packages/sqlite_web*/sqlite_web/sqlite_web.py`:
+`nano /usr/lib/python3.7/site-packages/sqlite_web*/sqlite_web/sqlite_web.py`
 
 ```
 import webbrowser - удаляем
